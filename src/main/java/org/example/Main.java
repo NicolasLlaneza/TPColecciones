@@ -17,7 +17,7 @@ public class Main {
             }
 
             opcion = scanner.nextInt();
-            String CONTRASENA_CORRECTA;
+
             if (opcion == 1) {
                 System.out.println("Has seleccionado el Ejercicio 1.");
                 ArrayList<Integer> numeros = new ArrayList<>();
@@ -39,7 +39,7 @@ public class Main {
 
                 sc.close();
             } else {
-                Scanner scanner7;
+
                 if (opcion == 2) {
                     System.out.println("Has seleccionado el Ejercicio 2.");
                     ArrayList<Integer> numeros = new ArrayList<>();
@@ -105,37 +105,30 @@ public class Main {
                     }
                     System.out.println("Cantidad de números menores que el promedio: " + menoresQuePromedio);
                 } else {
-                    int i;
-                    int numeroAleatorio;
+
                     if (opcion == 4) {
                         System.out.println("Has seleccionado el Ejercicio 4.");
-                        ArrayList<Integer> numeros = new ArrayList<>();
-                        Random random = new Random();
+                        Random rd = new Random();
+                        Scanner sc = new Scanner(System.in);
 
-                        for (int j = 0; j < 50; j++) {
-                            numeros.add(random.nextInt(100) + 1);
+                        ArrayList<Integer> lista = new ArrayList<>();
+                        for (int i = 0; i < 50; i++) {
+                            lista.add(rd.nextInt(100) + 1);
                         }
 
-                        System.out.println("Números generados: " + numeros);
+                        System.out.println("ArrayList generado: " + lista);
 
-                        Scanner sc = new Scanner(System.in);
-                        System.out.print("Ingresa el número que deseas buscar: ");
+                        System.out.print("Ingrese el número a buscar: ");
                         int valorBuscado = sc.nextInt();
 
-                        boolean encontrado = false;
-                        for (int j = 0; j < numeros.size(); j++) {
-                            if (numeros.get(j) == valorBuscado) {
-                                System.out.println("El número " + valorBuscado + " se encontró en la posición " + j);
-                                encontrado = true;
-                                break;
-                            }
-                        }
+                        if (lista.contains(valorBuscado)) {
 
-                        if (!encontrado) {
-                            System.out.println("El número " + valorBuscado + " no se encuentra en la lista.");
-                        }
+                            int indice = lista.indexOf(valorBuscado);
+                            System.out.println("El valor " + valorBuscado + " fue encontrado en la posición: " + indice);
+                        } else {
 
-                        sc.close();
+                            System.out.println("El valor " + valorBuscado + " no fue encontrado en la lista.");
+                        }
                     } else if (opcion == 5) {
                         System.out.println("Has seleccionado el Ejercicio 5.");
                         ArrayList<Integer> numeros = new ArrayList<>();
